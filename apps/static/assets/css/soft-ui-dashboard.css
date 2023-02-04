@@ -18428,7 +18428,7 @@ label,
 }
 
 .bg-gradient-primary {
-  background-image: linear-gradient(310deg, #1a2d63 0%, #09122b 100%);
+  background-image: linear-gradient(300deg, #09122b 0%, #1a2d63 100%);
 }
 
 .bg-gradient-secondary {
