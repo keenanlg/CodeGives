@@ -20,7 +20,7 @@ from flask_dance.contrib.github import github
 
 from apps import db, login_manager
 from apps.authentication import blueprint
-from apps.authentication.forms import LoginForm, CreateAccountForm
+from apps.authentication.forms import LoginForm, CreateAccountForm, CreatePostForm
 from apps.authentication.models import Users
 
 from apps.authentication.util import verify_pass, generate_token
@@ -114,6 +114,11 @@ def register():
 
     else:
         return render_template('accounts/register.html', form=create_account_form)
+@blueprint.route('/post', methods=['GET', 'POST'])
+def post():
+    create_post_form = CreatePostForm(request.form)
+    return render_template('home/post.html', form=create_post_form)
+
 
 @api.route('/login/jwt/', methods=['POST'])
 class JWTLogin(Resource):
